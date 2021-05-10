@@ -8,9 +8,22 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'personajes',
     pathMatch: 'full'
   },
+  {
+    path: 'personajes',
+    loadChildren: () => import('./personajes/personajes.module').then( m => m.PersonajesPageModule)
+  },
+  {
+    path: 'perfil/:id',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'tab-bar',
+    loadChildren: () => import('./tab-bar/tab-bar.module').then( m => m.TabBarPageModule)
+  }
+  
 ];
 
 @NgModule({
